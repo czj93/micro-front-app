@@ -6,3 +6,4 @@
 todo list
 [] activeMemu
 [] keepAlive
+[] 优化打包，抽离公共资源
