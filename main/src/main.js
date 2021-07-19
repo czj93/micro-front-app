@@ -39,13 +39,13 @@ Vue.config.productionTip = false
 registerMicroApps([
   {
     name: 'app1',
-    entry: 'http://localhost:8081',
+    entry: 'http://localhost:8082',
     container: '#container',
     activeRule: '/app1',
   },
   {
     name: 'app2',
-    entry: 'http://localhost:8082',
+    entry: 'http://localhost:8083',
     container: '#container',
     activeRule: '/app2',
   }

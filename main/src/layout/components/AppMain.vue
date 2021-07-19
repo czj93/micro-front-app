@@ -3,6 +3,7 @@
     <!-- <transition name="fade-transform" mode="out-in">
       <router-view :key="key" />
     </transition> -->
+    <router-view :key="key" />
     <div id="container"></div>
   </section>
 </template>

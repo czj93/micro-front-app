@@ -15,6 +15,32 @@ const name = defaultSettings.title || 'Micro Front App' // page title
 // port = 9528 npm run dev OR npm run dev --port = 9528
 const port = process.env.port || process.env.npm_config_port || 8080 // dev port
 
+const assetsCDN = {
+  // webpack build externals
+  externals: {
+    vue: 'Vue',
+    'vue-router': 'VueRouter',
+    vuex: 'Vuex',
+    axios: 'axios',
+    // 'element-ui': 'element-ui', 这种形式会报错
+    'elementui': 'element-ui',
+    qiankun: 'qiankun',
+  },
+  // externals: ['vue', 'vue-router', 'element-ui', 'axios', 'vuex'],
+  css: [
+    'https://unpkg.com/element-ui/lib/theme-chalk/index.css"'
+  ],
+  // https://unpkg.com/browse/vue@2.6.10/
+  js: [
+    'https://unpkg.com/vue@2.6.10/dist/vue.min.js',
+    'https://unpkg.com/vuex@2.5.0/dist/vuex.min.js',
+    'https://unpkg.com/vue-router@2.8.1/dist/vue-router.min.js',
+    'https://unpkg.com/axios@0.21.1/dist/axios.min.js',
+    'https://unpkg.com/element-ui/lib/index.js',
+    'https://unpkg.com/qiankun@2.4.3/dist/index.umd.min.js'
+  ]
+}
+
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
   /**
@@ -46,10 +72,13 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    }
+    },
+    externals: assetsCDN.externals,
   },
   filenameHashing: false,
   chainWebpack(config) {
+    // when there are many pages, it will cause too many meaningless requests
+    config.plugins.delete('prefetch')
     config.devServer.set('inline', false)
     config.devServer.set('hot', true)
     // Vue CLI 4 output filename is js/[chunkName].js, different from Vue CLI 3
@@ -59,6 +88,10 @@ module.exports = {
     }
     // config.externals(['vue', 'vue-router', 'element-ui', 'axios', 'vuex'])
 
+    config.plugin('html').tap(args => {
+      args[0].cdn = assetsCDN
+      return args
+    })
 
     // set svg-sprite-loader
     config.module
