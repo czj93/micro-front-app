@@ -4,6 +4,7 @@
 # Todo
 
 todo list
-[] activeMemu
-[] keepAlive
-[] 优化打包，抽离公共资源
+- [] activeMemu
+- [] keepAlive
+- [] 优化打包，抽离公共资源
+- [] 应用间通信
