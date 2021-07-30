@@ -46,7 +46,7 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/app1/dashboard',
+    redirect: '/dashboard',
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
@@ -55,12 +55,14 @@ export const constantRoutes = [
     }]
   },
   {
-    path: '/app1',
-    redirect: '/app1/dashboard',
+    path: '/app1/*',
+    component: Layout,
+    // redirect: '/app1/dashboard',
   },
   {
-    path: '/app2',
-    redirect: '/app2/dashboard',
+    path: '/app2/*',
+    component: Layout,
+    // redirect: '/app2/dashboard',
   },
   // 404 page must be placed at the end !!!
   // { path: '*', redirect: '/404', hidden: true }

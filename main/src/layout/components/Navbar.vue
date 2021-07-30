@@ -7,10 +7,10 @@
     <div class="app-nav">
       <el-menu :default-active="activeApp" mode="horizontal">
       <el-menu-item index="app1">
-        <router-link to="/app1">App1</router-link>
+        <router-link to="/app1/">App1</router-link>
       </el-menu-item>
       <el-menu-item index="app2">
-        <router-link to="/app2">App2</router-link>
+        <router-link to="/app2/">App2</router-link>
       </el-menu-item>
     </el-menu>
     </div>

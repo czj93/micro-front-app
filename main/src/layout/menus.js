@@ -8,7 +8,14 @@ export default {
         name: 'Dashboard',
         meta: { title: 'Dashboard', icon: 'dashboard' }
       }]
-    }
+    },
+    {
+      path: '/list',
+      meta: {
+        title: '列表页',
+        icon: 'table'
+      }
+    },
   ],
   'app2': [
     {
@@ -19,6 +26,13 @@ export default {
         name: 'Dashboard',
         meta: { title: 'Dashboard', icon: 'dashboard' }
       }]
+    },
+    {
+      path: '/list',
+      meta: {
+        title: '列表页',
+        icon: 'table'
+      }
     }
   ]
 }
